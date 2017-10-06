@@ -16,6 +16,8 @@ You can watch short video of application running.
 
 You can compile src/makao/Makao.java or download runnable JAR here: [runnable JAR](https://drive.google.com/open?id=0B_bwkWjLwn2MT3JfbDhTLXdmdEU).
 
+It requires Java 8 (PApplet doesn’t work with Java 9 yet).
+
 # How can it be improved?
 
 Code could be refactored using some design patterns. There are some code blocks that should be splitted to helper methods, espacially methods determining AI moves are horrific spaghetti. Dialogs (choosing called colour etc.) could be improved, now they are bulky. Even simple Swing dialogs would make huge difference. For now I think Processing isn’t best choice as library used to make such application, especially considering it’s problems with Java 9.
