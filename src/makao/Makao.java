@@ -1,5 +1,7 @@
 package makao;
 
+import java.util.Locale;
+
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import processing.core.PApplet;
@@ -32,10 +34,17 @@ public class Makao extends PApplet{
 
 	public void setup(){
 		minim = new Minim(this);
-		put = minim.loadFile("sounds\\put.mp3");
-		take = minim.loadFile("sounds\\take.mp3");
-		shuffle = minim.loadFile("sounds\\shuffle.mp3");
-		fanfare = minim.loadFile("sounds\\fanfare.mp3");
+		
+		String separator;
+		if(System.getProperty("os.name").toLowerCase(Locale.ENGLISH).indexOf("win")>=0)
+			separator = "\\";
+		else
+			separator = "/";
+		
+		put = minim.loadFile("sounds"+separator+"put.mp3");
+		take = minim.loadFile("sounds"+separator+"take.mp3");
+		shuffle = minim.loadFile("sounds"+separator+"shuffle.mp3");
+		fanfare = minim.loadFile("sounds"+separator+"fanfare.mp3");
 	}
 	
 	public void draw(){
@@ -93,7 +102,7 @@ public class Makao extends PApplet{
 			textSize(25);
 			text("Press 'S' to turn sound on/off.", 500, 450);
 			textSize(20);
-			text("Author: Tomasz Zagórski (zagorskitomasz@gmail.com)", 500, 530);
+			text("Author: Tomasz Zagorski (zagorskitomasz@gmail.com)", 500, 530);
 			break;
 		case "decksChoose":
 			background(100,50,0);

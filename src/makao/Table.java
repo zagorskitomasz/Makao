@@ -1,6 +1,7 @@
 package makao;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Random;
 
 import processing.core.PApplet;
@@ -20,7 +21,14 @@ public class Table extends Hand{
 	
 	public Table(Card[] cards, PApplet pa){
 		super(cards);
-		deck = pa.loadImage("cards\\deck.png", "png");
+		
+		String separator;
+		if(System.getProperty("os.name").toLowerCase(Locale.ENGLISH).indexOf("win")>=0)
+			separator = "\\";
+		else
+			separator = "/";
+		
+		deck = pa.loadImage("cards"+separator+"deck.png", "png");
 		pile = new Card[0];
 		calledSuit = null;
 		calledRank = null;

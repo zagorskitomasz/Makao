@@ -1,5 +1,7 @@
 package makao;
 
+import java.util.Locale;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -36,7 +38,13 @@ public class Card implements Comparable<Card> {
 		Rank[] rankArr = Rank.values();
 		rank = rankArr[r];
 		
-		cardImg = pa.loadImage("cards\\"+suit.name()+rank.name()+".png", "png");
+		String separator;
+		if(System.getProperty("os.name").toLowerCase(Locale.ENGLISH).indexOf("win")>=0)
+			separator = "\\";
+		else
+			separator = "/";
+		
+		cardImg = pa.loadImage("cards"+separator+suit.name()+rank.name()+".png", "png");
 	}
 	
 	public Card(int s, int r){
